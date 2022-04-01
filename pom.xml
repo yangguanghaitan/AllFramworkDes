@@ -18,6 +18,7 @@
 
     <properties>
         <spring-boot.version>2.5.5</spring-boot.version>
+        <pagehelper.boot.version>1.2.5</pagehelper.boot.version>
     </properties>
 
     <dependencyManagement>
@@ -29,6 +30,12 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
