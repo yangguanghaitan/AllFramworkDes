@@ -1,9 +1,9 @@
 package com.boot.system.domain;
 
-import com.logistics.common.annotation.Excel;
-import com.logistics.common.annotation.Excel.ColumnType;
-import com.logistics.common.annotation.Excel.Type;
-import com.logistics.common.annotation.Excels;
+//import com.logistics.common.annotation.Excel;
+//import com.logistics.common.annotation.Excel.ColumnType;
+//import com.logistics.common.annotation.Excel.Type;
+//import com.logistics.common.annotation.Excels;
 import com.boot.common.core.domain.BaseEntity;
 
 import javax.validation.constraints.Email;
@@ -24,13 +24,13 @@ public class SysUser extends BaseEntity {
     /**
      * 用户ID
      */
-    @Excel(name = "用户序号", cellType = ColumnType.NUMERIC, prompt = "用户编号")
+//    @Excel(name = "用户序号", cellType = ColumnType.NUMERIC, prompt = "用户编号")
     private Long userId;
 
     /**
      * 部门ID
      */
-    @Excel(name = "部门编号", type = Type.IMPORT)
+//    @Excel(name = "部门编号", type = Type.IMPORT)
     private Long deptId;
 
     /**
@@ -46,36 +46,36 @@ public class SysUser extends BaseEntity {
     /**
      * 登录名称
      */
-    @Excel(name = "登录名称")
+//    @Excel(name = "登录名称")
     private String loginName;
 
     /**
      * 用户名称
      */
-    @Excel(name = "用户名称")
+//    @Excel(name = "用户名称")
     private String userName;
 
     /**
      * 用户邮箱
      */
-    @Excel(name = "用户邮箱")
+//    @Excel(name = "用户邮箱")
     private String email;
 
     /**
      * 手机号码
      */
-    @Excel(name = "手机号码")
+//    @Excel(name = "手机号码")
     private String phonenumber;
     /**
      * 公司名
      */
-    @Excel(name = "公司名")
+//    @Excel(name = "公司名")
     private String companyName;
 
     /**
      * 用户性别
      */
-    @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
+//    @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
     private String sex;
 
     /**
@@ -96,7 +96,7 @@ public class SysUser extends BaseEntity {
     /**
      * 帐号状态（0正常 1停用）
      */
-    @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
+//    @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
     private String status;
 
     /**
@@ -107,22 +107,22 @@ public class SysUser extends BaseEntity {
     /**
      * 最后登陆IP
      */
-    @Excel(name = "最后登陆IP", type = Type.EXPORT)
+//    @Excel(name = "最后登陆IP", type = Type.EXPORT)
     private String loginIp;
 
     /**
      * 最后登陆时间
      */
-    @Excel(name = "最后登陆时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
+//    @Excel(name = "最后登陆时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
     private Date loginDate;
 
     /**
      * 部门对象
      */
-    @Excels({
-            @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
-            @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
-    })
+//    @Excels({
+//            @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
+//            @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
+//    })
     private SysDept dept;
 
     private List<SysRole> roles;
@@ -170,7 +170,7 @@ public class SysUser extends BaseEntity {
      * 公司类型
      * 
      */
-    @Excel(name = "企业类型", readConverterExp = "0=物流公司,1=货主公司")
+//    @Excel(name = "企业类型", readConverterExp = "0=物流公司,1=货主公司")
     private Integer companyFlag;
     
     private String dangerousCar;

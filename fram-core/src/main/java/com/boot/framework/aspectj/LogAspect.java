@@ -5,9 +5,9 @@ import com.boot.common.enums.BusinessStatus;
 import com.boot.common.json.JSON;
 import com.boot.common.utils.ServletUtils;
 import com.boot.common.utils.StringUtils;
-import com.logistics.framework.manager.AsyncManager;
-import com.logistics.framework.manager.factory.AsyncFactory;
-import com.logistics.framework.util.ShiroUtils;
+//import com.logistics.framework.manager.AsyncManager;
+//import com.logistics.framework.manager.factory.AsyncFactory;
+//import com.logistics.framework.util.ShiroUtils;
 import com.boot.system.domain.SysOperLog;
 import com.boot.system.domain.SysUser;
 import org.aspectj.lang.JoinPoint;
@@ -71,13 +71,15 @@ public class LogAspect {
             }
 
             // 获取当前的用户
-            SysUser currentUser = ShiroUtils.getSysUser();
+//            SysUser currentUser = ShiroUtils.getSysUser();
+            SysUser currentUser = new SysUser();
 
             // *========数据库日志=========*//
             SysOperLog operLog = new SysOperLog();
             operLog.setStatus(BusinessStatus.SUCCESS.ordinal());
             // 请求的地址
-            String ip = ShiroUtils.getIp();
+//            String ip = ShiroUtils.getIp();
+            String ip = "ShiroUtils.getIp()";
             operLog.setOperIp(ip);
 
             operLog.setOperUrl(ServletUtils.getRequest().getRequestURI());
@@ -100,7 +102,8 @@ public class LogAspect {
             // 处理设置注解上的参数
             getControllerMethodDescription(controllerLog, operLog);
             // 保存数据库
-            AsyncManager.me().execute(AsyncFactory.recordOper(operLog));
+//            AsyncManager.me().execute(AsyncFactory.recordOper(operLog));
+            log.info(operLog.toString());
         } catch (Exception exp) {
             // 记录本地异常日志
             log.error("==前置通知异常==");
