@@ -1,7 +1,7 @@
 package com.boot.system.entity;
 
 import com.boot.common.core.domain.BaseEntity;
-import com.logistics.common.annotation.Excel;
+//import com.logistics.common.annotation.Excel;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -24,67 +24,67 @@ public class CwwlUser extends BaseEntity {
     /**
      * 登陆用户手机号
      */
-    @Excel(name = "登陆用户手机号")
+//    @Excel(name = "登陆用户手机号")
     private String userPhone;
 
     /**
      * 人员姓名
      */
-    @Excel(name = "人员姓名")
+//    @Excel(name = "人员姓名")
     private String userName;
 
     /**
      * 密码
      */
-    @Excel(name = "密码")
+//    @Excel(name = "密码")
     private String password;
 
     /**
      * 用户类型
      */
-    @Excel(name = "用户类型")
+//    @Excel(name = "用户类型")
     private Integer userType;
 
     /**
      * 状态
      */
-    @Excel(name = "状态")
+//    @Excel(name = "状态")
     private Integer status;
 
     /**
      * 所属公司id
      */
-    @Excel(name = "所属公司id")
+//    @Excel(name = "所属公司id")
     private Long companyId;
 
     /**
      * 创建时间
      */
-    @Excel(name = "创建时间", width = 30, dateFormat = "yyyy-MM-dd")
+//    @Excel(name = "创建时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date createDate;
 
     /**
      * 头像途径
      */
-    @Excel(name = "头像途径")
+//    @Excel(name = "头像途径")
     private String avatar;
 
     /**
      * 加盐码
      */
-    @Excel(name = "加盐码")
+//    @Excel(name = "加盐码")
     private String salt;
 
     /**
      * 最后登录时间
      */
-    @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd")
+//    @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd")
     private Date loginDate;
 
     /**
      * token
      */
-    @Excel(name = "token")
+//    @Excel(name = "token")
     private String token;
 
     public void setUserId(Long userId) {
