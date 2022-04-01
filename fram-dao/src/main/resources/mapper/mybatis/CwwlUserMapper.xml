@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.system.dao.CwwlUserMapper">
+    
+    <resultMap type="com.boot.system.entity.CwwlUser" id="CwwlUserResult">
+        <result property="userId"    column="user_id"    />
+        <result property="userPhone"    column="user_phone"    />
+        <result property="userName"    column="user_name"    />
+        <result property="password"    column="password"    />
+        <result property="userType"    column="user_type"    />
+        <result property="status"    column="status"    />
+        <result property="companyId"    column="company_id"    />
+        <result property="createDate"    column="create_date"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="salt"    column="salt"    />
+        <result property="loginDate"    column="login_date"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="token"    column="token"    />
+    </resultMap>
+
+    <sql id="selectCwwlUserVo">
+        select user_id, user_phone, user_name, password, user_type, status, company_id, create_date, avatar, salt, login_date, create_by, create_time, update_by, update_time, remark, token from cwwl_user
+    </sql>
+
+    <select id="selectCwwlUserList" parameterType="com.boot.system.entity.CwwlUser" resultMap="CwwlUserResult">
+        <include refid="selectCwwlUserVo"/>
+        <where>  
+            <if test="userPhone != null  and userPhone != ''"> and user_phone = #{userPhone}</if>
+            <if test="userName != null  and userName != ''"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+            <if test="userType != null "> and user_type = #{userType}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="companyId != null "> and company_id = #{companyId}</if>
+            <if test="createDate != null "> and create_date = #{createDate}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+            <if test="salt != null  and salt != ''"> and salt = #{salt}</if>
+            <if test="loginDate != null "> and login_date = #{loginDate}</if>
+            <if test="token != null  and token != ''"> and token = #{token}</if>
+        </where>
+    </select>
+    
+    <select id="selectCwwlUserById" parameterType="Long" resultMap="CwwlUserResult">
+        <include refid="selectCwwlUserVo"/>
+        where user_id = #{userId}
+    </select>
+        
+    <insert id="insertCwwlUser" parameterType="com.boot.system.entity.CwwlUser" useGeneratedKeys="true" keyProperty="userId">
+        insert into cwwl_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userPhone != null  and userPhone != ''">user_phone,</if>
+            <if test="userName != null  and userName != ''">user_name,</if>
+            <if test="password != null  and password != ''">password,</if>
+            <if test="userType != null ">user_type,</if>
+            <if test="status != null ">status,</if>
+            <if test="companyId != null ">company_id,</if>
+            <if test="createDate != null ">create_date,</if>
+            <if test="avatar != null  and avatar != ''">avatar,</if>
+            <if test="salt != null  and salt != ''">salt,</if>
+            <if test="loginDate != null ">login_date,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="token != null  and token != ''">token,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userPhone != null  and userPhone != ''">#{userPhone},</if>
+            <if test="userName != null  and userName != ''">#{userName},</if>
+            <if test="password != null  and password != ''">#{password},</if>
+            <if test="userType != null ">#{userType},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="companyId != null ">#{companyId},</if>
+            <if test="createDate != null ">#{createDate},</if>
+            <if test="avatar != null  and avatar != ''">#{avatar},</if>
+            <if test="salt != null  and salt != ''">#{salt},</if>
+            <if test="loginDate != null ">#{loginDate},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="token != null  and token != ''">#{token},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCwwlUser" parameterType="com.boot.system.entity.CwwlUser">
+        update cwwl_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userPhone != null  and userPhone != ''">user_phone = #{userPhone},</if>
+            <if test="userName != null  and userName != ''">user_name = #{userName},</if>
+            <if test="password != null  and password != ''">password = #{password},</if>
+            <if test="userType != null ">user_type = #{userType},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="companyId != null ">company_id = #{companyId},</if>
+            <if test="createDate != null ">create_date = #{createDate},</if>
+            <if test="avatar != null  and avatar != ''">avatar = #{avatar},</if>
+            <if test="salt != null  and salt != ''">salt = #{salt},</if>
+            <if test="loginDate != null ">login_date = #{loginDate},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+            <if test="token != null  and token != ''">token = #{token},</if>
+        </trim>
+        where user_id = #{userId}
+    </update>
+
+    <delete id="deleteCwwlUserById" parameterType="Long">
+        delete from cwwl_user where user_id = #{userId}
+    </delete>
+
+    <delete id="deleteCwwlUserByIds" parameterType="String">
+        delete from cwwl_user where user_id in 
+        <foreach item="userId" collection="array" open="(" separator="," close=")">
+            #{userId}
+        </foreach>
+    </delete>
+
+    <select id="checkUserPhone" resultType="int">
+        SELECT COUNT(1) FROM cwwl_user WHERE user_phone = #{userPhone}
+    </select>
+
+</mapper>
