@@ -13,6 +13,11 @@
 
 
     <dependencies>
+        <!-- SpringBoot 拦截器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.boot</groupId>
             <artifactId>fram-dao</artifactId>
