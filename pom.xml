@@ -8,11 +8,11 @@
     <artifactId>AllFramworkDes</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>fram-shiro</module>
         <module>fram-dao</module>
         <module>fram-core</module>
         <module>fram-admin</module>
         <module>fram-common</module>
+        <module>quartz</module>
     </modules>
     <packaging>pom</packaging>
 
